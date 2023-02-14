@@ -23,33 +23,39 @@ $container-weight: 450px;
     text-align: center;
   }
 
-  .checkList-item {
-    border-top: 2px solid $primary-color;
-    display: grid;
-    grid-template-columns: 1fr repeat(2, 50px);
+  .checkList-elements {
+    height: $container-weight;
+    position: relative;
+    overflow-y: auto;
 
-    .checkList-task {
-      text-align: justify;
-      margin: 17px;
-    }
+    .checkList-item {
+      border-top: 2px solid $primary-color;
+      display: grid;
+      grid-template-columns: 1fr repeat(2, 50px);
 
-    .checkList-delete, .checkList-edit {
-      border: 2px solid #ffffff;
-      border-radius: 50px;
-      margin: auto;
-      color: $primary-color;
-      font-size: 1.2rem;
-      @include transition();
-
-      svg {
-        padding: 7px;
+      .checkList-task {
+        text-align: justify;
+        margin: 17px;
       }
-    }
 
-    .checkList-delete:hover, .checkList-edit:hover {
-      cursor: pointer;
-      color: white;
-      background-color: $primary-color;
+      .checkList-delete, .checkList-edit {
+        border: 2px solid #ffffff;
+        border-radius: 50px;
+        margin: auto;
+        color: $primary-color;
+        font-size: 1.2rem;
+        @include transition();
+
+        svg {
+          padding: 7px;
+        }
+      }
+
+      .checkList-delete:hover, .checkList-edit:hover {
+        cursor: pointer;
+        color: white;
+        background-color: $primary-color;
+      }
     }
   }
 }
