@@ -1,0 +1,37 @@
+@import "../checkList/style";
+
+.adding-wrapper {
+  width: $container-weight;
+  display: grid;
+  grid-template-columns: 4fr 1fr;
+  padding: 17px 0;
+
+  .adding-field {
+    font-size: 1rem;
+    padding: 12px 15px;
+    border-top-left-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+    border: 2px solid $primary-color;
+    border-right: transparent;
+  }
+
+  .btn-add-task{
+    border: 2px solid $primary-color;
+    border-top-right-radius: $border-radius;
+    border-bottom-right-radius: $border-radius;
+    text-align: center;
+    color: #ffffff;
+    display: inline-block;
+    background-color: $primary-color;
+    padding: 8px 13px;
+    font-size: 1rem;
+    @include transition();
+  }
+
+  .btn-add-task:hover{
+    cursor: pointer;
+    background-color: #ffffff;
+    color: #7fbdb0;
+  }
+
+}
