@@ -38,6 +38,14 @@ $container-weight: 450px;
         margin: 17px;
       }
 
+      .checkList-task:hover{
+        cursor: pointer;
+      }
+
+      .cross-out-task{
+        text-decoration: line-through;
+      }
+
       .checkList-delete, .checkList-edit {
         border: 2px solid #ffffff;
         border-radius: 50px;

@@ -3,19 +3,25 @@ import {CheckList} from "./views/components/checkList";
 import {AddTask} from "./views/components/addTask";
 import {store} from './store'
 import {Provider} from "react-redux";
-import {useEffect} from "react";
+import {useEffect, useState} from "react";
 
 function App() {
-    let useEditElem;
+    // let [editElement, setEditElement] = useState('')
+    //
     // useEffect(() => {
-    //     console.log(useEditElem)
-    // }, [useEditElem])
+    //     console.log(editElement)
+    // }, [editElement])
+    //
+    // const getElemToEdit = (elem) =>{
+    //     setEditElement(elem)
+    // }
+
     return (
         <Provider store={store}>
             <div className="App">
                 <h1>SMART TODO</h1>
-                <AddTask useEditElem={useEditElem}/>
-                <CheckList useEditElem={useEditElem}/>
+                <AddTask/>
+                <CheckList/>
             </div>
         </Provider>
     );
