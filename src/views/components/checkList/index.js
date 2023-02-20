@@ -31,8 +31,8 @@ export const CheckList = () => {
             <div className={'checkList-elements'}>
                 {todoItems.map(elem => {
                     return (
-                        <div className={'checkList-item'} key={elem.id}>
-                            <p className={elem.done ? 'checkList-task cross-out-task' : 'checkList-task'} data-done-id={elem.id} onClick={CrossOutTask}>{elem.task}</p>
+                        <div className={elem.done ? 'checkList-item cross-out-task' : 'checkList-item'} key={elem.id}>
+                            <p className={'checkList-task'} data-done-id={elem.id} onClick={CrossOutTask}>{elem.task}</p>
                             <p className={'checkList-edit'} data-edit-id={elem.id}><FontAwesomeIcon icon={faPenToSquare}/></p>
                             <p className={'checkList-delete'} data-delete-id={elem.id} onClick={deleteTask}><FontAwesomeIcon icon={faTrashCan}/></p>
                         </div>
