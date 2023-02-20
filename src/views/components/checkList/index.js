@@ -5,7 +5,7 @@ import {useDispatch} from "react-redux";
 import {handelDeletingTask, handelDoneTask} from "../../../store/actions";
 import {reduxTodoList} from "../../../store/selectors";
 
-export const CheckList = () => {
+export const CheckList = ({getElemToEdit}) => {
     const todoItems = reduxTodoList()
     const dispatch = useDispatch()
 
@@ -14,12 +14,13 @@ export const CheckList = () => {
         dispatch(handelDeletingTask(+deletingElement))
     }
 
-    // const elemToEdit = (e) =>{
-    //     const editingElem = e.currentTarget.getAttribute('data-edit-id')
-    //     getElemToEdit(todoItems.find(elem => elem.id === +editingElem).task)
-    // }
+    const elemToEdit = (e) =>{
+        const editingElem = e.currentTarget.getAttribute('data-edit-id')
+        getElemToEdit(todoItems.find(elem => elem.id === +editingElem).task, todoItems.find(elem => elem.id === +editingElem).id)
 
-    const CrossOutTask = (e) =>{
+    }
+
+    const changeDoneStatus = (e) =>{
         const doneElem = e.currentTarget.getAttribute('data-done-id')
         dispatch(handelDoneTask(+doneElem))
     }
@@ -32,8 +33,8 @@ export const CheckList = () => {
                 {todoItems.map(elem => {
                     return (
                         <div className={elem.done ? 'checkList-item cross-out-task' : 'checkList-item'} key={elem.id}>
-                            <p className={'checkList-task'} data-done-id={elem.id} onClick={CrossOutTask}>{elem.task}</p>
-                            <p className={'checkList-edit'} data-edit-id={elem.id}><FontAwesomeIcon icon={faPenToSquare}/></p>
+                            <p className={'checkList-task'} data-done-id={elem.id} onClick={changeDoneStatus}>{elem.task}</p>
+                            <p className={'checkList-edit'} data-edit-id={elem.id} onClick={elemToEdit}><FontAwesomeIcon icon={faPenToSquare}/></p>
                             <p className={'checkList-delete'} data-delete-id={elem.id} onClick={deleteTask}><FontAwesomeIcon icon={faTrashCan}/></p>
                         </div>
                     )

@@ -6,22 +6,20 @@ import {Provider} from "react-redux";
 import {useEffect, useState} from "react";
 
 function App() {
-    // let [editElement, setEditElement] = useState('')
-    //
-    // useEffect(() => {
-    //     console.log(editElement)
-    // }, [editElement])
-    //
-    // const getElemToEdit = (elem) =>{
-    //     setEditElement(elem)
-    // }
+    let [editElement, setEditElement] = useState('')
+    let [editElemId, setEditElemId] = useState(null)
+
+    const getElemToEdit = (elem1, elem2) => {
+        setEditElement(elem1)
+        setEditElemId(elem2)
+    }
 
     return (
         <Provider store={store}>
             <div className="App">
                 <h1>SMART TODO</h1>
-                <AddTask/>
-                <CheckList/>
+                <AddTask editElem={editElement} getElemToEdit={getElemToEdit} editElemId={editElemId}/>
+                <CheckList getElemToEdit={getElemToEdit}/>
             </div>
         </Provider>
     );
