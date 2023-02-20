@@ -28,6 +28,10 @@ $container-weight: 450px;
     position: relative;
     overflow-y: auto;
 
+    .cross-out-task{
+      background-color: rgba(92,232,167,0.38);
+    }
+
     .checkList-item {
       border-top: 2px solid $primary-color;
       display: grid;
@@ -36,6 +40,10 @@ $container-weight: 450px;
       .checkList-task {
         text-align: justify;
         margin: 17px;
+      }
+
+      .checkList-task:hover{
+        cursor: pointer;
       }
 
       .checkList-delete, .checkList-edit {
